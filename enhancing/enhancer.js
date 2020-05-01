@@ -7,9 +7,9 @@ module.exports = {
 
 function succeed(item) {
   
-  if (enhancement < 20 && enhancement > -1) {
-    return{ ...item, enhancement: enhancement++};
-  } else if (enhancement == 20) {
+  if (item.enhancement < 20 && item.enhancement > -1) {
+    return{ ...item, enhancement: item.enhancement + 1};
+  } else if (item.enhancement == 20) {
     return { ...item, enhancement}
    } else return { ...item }
 
