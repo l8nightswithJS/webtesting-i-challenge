@@ -8,9 +8,21 @@ const item = {
 }
 
 const itemSuccess = {
-    name: "add to durability",
+    name: "add to enhancement",
     durability: 0,
-    enhancement: 19,
+    enhancement: 1,
+}
+
+const itemFailFive = {
+    name: "subtract five from durability",
+    durability: 100,
+    enhancement: 1,
+}
+
+const itemFailTen = {
+    name: "subtract 10 from durability and subtract 1 from enhancement",
+    durability: 100,
+    enhancement: 18,
 }
 
 it('true should be true', () => {
@@ -27,7 +39,16 @@ describe('jest testing', () => {
     describe('success()', () => {
         it('should create new item with an added enhancement', () => {
             const testSuccess = succeed(itemSuccess);
-            expect(testSuccess.enhancement).toEqual(20);
+            expect(testSuccess.enhancement).toEqual(2);
+        });
+    });
+    describe('fail()', () => {
+        it('should create new item with an added enhancement', () => {
+            const testFail = fail(itemFailFive);
+            const testFailTwo = fail(itemFailTen);
+            expect(testFail.durability).toEqual(95);
+            expect(testFailTwo.durability).toEqual(90);
+            expect(testFailTwo.enhancement).toEqual(17);
         });
     });
 });

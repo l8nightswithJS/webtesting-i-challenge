@@ -10,13 +10,17 @@ function succeed(item) {
   if (item.enhancement < 20 && item.enhancement > -1) {
     return{ ...item, enhancement: item.enhancement + 1};
   } else if (item.enhancement == 20) {
-    return { ...item, enhancement}
+    return { ...item, enhancement: item.enhancement}
    } else return { ...item }
 
 }
 
 function fail(item) {
-  return { ...item };
+  if (item.enhancement < 20 && item.enhancement > -1 && item.enhancement < 16) {
+    return{ ...item, durability: item.durability - 5};
+  } else if (item.enhancement < 20 && item.enhancement > -1 && item.enhancement > 14) {
+    return { ...item, enhancement: item.enhancement - 1, durability: item.durability - 10}
+   } else return { ...item }
 }
 
 function repair(item) {
